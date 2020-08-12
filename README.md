@@ -24,3 +24,10 @@ pip3 install python-eq3bt
 ## Kodi 
 [Anleitung Home Assitent Community](https://www.home-assistant.io/integrations/kodi/)
 
+## mysql
+```bash
+apt install libmariadbclient-dev sqlite3
+su -s /bin/bash homeassistant
+python3 -m venv /opt/homeassistant
+pip3 install mysqlclient --upgrade
+```

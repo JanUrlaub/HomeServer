@@ -31,3 +31,7 @@ su -s /bin/bash homeassistant
 python3 -m venv /opt/homeassistant
 pip3 install mysqlclient --upgrade
 ```
+
+## Grafana
+https://grafana.com/docs/grafana/latest/installation/debian/
+

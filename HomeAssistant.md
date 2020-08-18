@@ -1,4 +1,4 @@
-# Home Assistent
+# Home Assistant
 Dokumentation für Home Assistent Server
 
 ## grundsätzliche Einrichtung

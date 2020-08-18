@@ -18,8 +18,32 @@ pip3 install python-eq3bt
 ```
 
 ## Apache Webserver
-[Per Subdomain](https://community.home-assistant.io/t/reverse-proxy-with-apache/196942)
+[Per Subdomain](https://community.home-assistant.io/t/reverse-proxy-with-apache/196942)  
+/etc/apache2/sites-available/homeassitent.conf
+```conf
+<VirtualHost *:443>
+    ServerName xxxxxx
+    ProxyPreserveHost On
+    ProxyRequests off
+    ProxyPass /api/websocket ws://localhost:8123/api/websocket
+    ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
+    ProxyPass / http://localhost:8123/
+    ProxyPassReverse / http://localhost:8123/
 
+    RewriteEngine on
+    RewriteCond %{HTTP:Upgrade} =websocket [NC]
+    RewriteRule /(.*)  ws://localhost:8123/$1 [P,L]
+    RewriteCond %{HTTP:Upgrade} !=websocket [NC]
+    RewriteRule /(.*)  http://localhost:8123/$1 [P,L]
+
+    SSLCertificateFile /etc/letsencrypt/live/xxxxxx/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/xxxxxx/privkey.pem
+    Include /etc/letsencrypt/options-ssl-apache.conf
+
+    CustomLog ${APACHE_LOG_DIR}/home_access.log combined
+	ErrorLog ${APACHE_LOG_DIR}/home_error.log
+</VirtualHost>
+```
 
 ## Kodi 
 [Anleitung Home Assitent Community](https://www.home-assistant.io/integrations/kodi/)

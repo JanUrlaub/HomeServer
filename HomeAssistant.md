@@ -16,6 +16,17 @@ pip3 install python-eq3bt
 /opt/homeassistant/.local/bin/eq3cli --mac 00:00:00:00:00:00 locked --target false
 /opt/homeassistant/.local/bin/eq3cli --mac 00:00:00:00:00:00 locked --target true
 ```
+Aus unerfindlichen Gründen stürzt das Bluetooth Modul neuerdings (2020-08-19) intern ab.  
+Der Service läuft, es werden aber keine Dienste mehr erkannt.  
+Der Fix sieht wie folgt aus:  
+```bash
+nano /lib/systemd/system/bluetooth.service
+```
+Problem ist das SIM-Access-Profile, das die Meldung "Operation not permitted" verursacht.  
+```service
+ExecStart=/usr/lib/bluetooth/bluetoothd --noplugin=sap
+```
+
 
 ## Apache Webserver
 [Per Subdomain](https://community.home-assistant.io/t/reverse-proxy-with-apache/196942)  

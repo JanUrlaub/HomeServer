@@ -65,3 +65,16 @@ deb-src http://debian-mirrors.sdinet.de/deb-multimedia stable main
 [Home Assistant](HomeAssistant.md)
 ## Security Concepts
 [Security](Security.md)
+
+## WLAN
+```bash
+apt install wpasupplicant
+wpa_passphrase 'Netzwerkname' Passwort
+nano /etc/network/interfaces
+```
+Den Netzwerkname OHNE '
+```conf
+iface wlp58s0 inet dhcp
+        wpa-ssid Netzwerkname
+        wpa-psk Ergebnis aus wpa_passphrase
+```

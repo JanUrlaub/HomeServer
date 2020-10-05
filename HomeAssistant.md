@@ -26,6 +26,14 @@ Problem ist das SIM-Access-Profile, das die Meldung "Operation not permitted" ve
 ```service
 ExecStart=/usr/lib/bluetooth/bluetoothd --noplugin=sap
 ```
+Auch ist ein Problem, dass der Bluetooth-Adapter regelmäßig nicht mehr erreichbar ist
+Grund unbekannt. Evtl. eine Lösung:
+```conf
+DiscoverableTimeout = 60
+PairableTimeout = 60
+ControllerMode = le
+Cache = no
+```
 
 
 ## Apache Webserver

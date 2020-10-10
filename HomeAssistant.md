@@ -26,6 +26,9 @@ Problem ist das SIM-Access-Profile, das die Meldung "Operation not permitted" ve
 ```service
 ExecStart=/usr/lib/bluetooth/bluetoothd --noplugin=sap
 ```
+```bash
+systemctl daemon-reload
+```
 Auch ist ein Problem, dass der Bluetooth-Adapter regelmäßig nicht mehr erreichbar ist
 Grund unbekannt. Evtl. eine Lösung:
 ```conf

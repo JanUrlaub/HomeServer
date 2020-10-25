@@ -29,15 +29,44 @@ ExecStart=/usr/lib/bluetooth/bluetoothd --noplugin=sap
 ```bash
 systemctl daemon-reload
 ```
-Auch ist ein Problem, dass der Bluetooth-Adapter regelmäßig nicht mehr erreichbar ist
-Grund unbekannt. Evtl. eine Lösung:
+Auch ist ein Problem, dass der Bluetooth-Adapter regelmäßig nicht mehr erreichbar ist.
+Er geht einfach in den suspend Modus.
+Zum deaktiveren
 ```conf
-DiscoverableTimeout = 60
-PairableTimeout = 60
-ControllerMode = le
-Cache = no
+#/etc/systemd/system/bt.service
+[Unit]
+Description=Disable autosuspend for bluetooth devices
+Requires=bluetooth.target
+After=bluetooth.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/bluetooth
+NotifyAccess=main
+
+[Install]
+WantedBy=multi-user.target
 ```
 
+```bash
+#!/bin/bash
+#/opt/bluetooth
+
+# Prevents the Bluetooth USB card from getting reset which disconnects the mouse
+BTUSB_DEV="8087:0a2b"
+BTUSB_BINDING="$(lsusb -d "$BTUSB_DEV" |
+    cut -f 1 -d : |
+    sed -e 's,Bus ,,' -e 's, Device ,/,' |
+    xargs -I {} udevadm info -q path -n /dev/bus/usb/{} |
+    xargs basename)"
+
+echo "Disabling autosuspend for Bluetooth USB: $BTUSB_BINDING..."
+echo -1 > "/sys/bus/usb/devices/$BTUSB_BINDING/power/autosuspend_delay_ms"
+```
+```bash
+chmod +x /opt/bluetooth
+```
 
 ## Apache Webserver
 [Per Subdomain](https://community.home-assistant.io/t/reverse-proxy-with-apache/196942)  

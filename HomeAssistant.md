@@ -66,6 +66,8 @@ echo -1 > "/sys/bus/usb/devices/$BTUSB_BINDING/power/autosuspend_delay_ms"
 ```
 ```bash
 chmod +x /opt/bluetooth
+systemctl enable bt.service
+systemctl start bt.service
 ```
 
 ## Apache Webserver

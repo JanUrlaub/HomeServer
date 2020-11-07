@@ -11,3 +11,4 @@ deb-src http://rspamd.com/apt-stable/ buster main
 Nur manuell möglich (aktuell).  
 Datei „spam-global.sieve“ im Ordner /var/vmail/sieve/global  
 Nach Änderung Kompilierung nötig!: sievec /var/vmail/sieve/global  
+Neustart vopn dovecot: service dovecot restart  

@@ -30,11 +30,8 @@
 </VirtualHost>
 ```
 ## Mail Server
-### /etc/apt/sources.list.d/rspamd.list
-```list
-deb http://rspamd.com/apt-stable/ buster main
-deb-src http://rspamd.com/apt-stable/ buster main
-```
+[E-Mail Server](EMail.md)
+
 ## Musik Server
 /etc/apache2/sites-available/fampache.config
 ```conf

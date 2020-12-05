@@ -75,3 +75,33 @@ iface wlp58s0 inet dhcp
         wpa-ssid Netzwerkname
         wpa-psk Ergebnis aus wpa_passphrase
 ```
+
+## Kodi
+Kodi läuft als standalone Service und benutzt nur das Minimalsystem von X11 zur grafischen Darstellung.  
+Leider habe ich die damals gefundene Doku nicht gespeichert; die anderen Hilfen sind gerne recht komplex und funktionieren am Ende nicht mal.  
+Ein scheinbar aktuelles Git dazu https://github.com/graysky2/kodi-standalone-service  
+```bash
+apt install kodi kodi-standalone
+```
+Mein Systemd Eintrag. todo wechsel auf wayland.  
+/etc/systemd/system/kodi/service
+```service
+[Unit]
+Description=Kodi standalone (X11)
+After=systemd-user-sessions.service network-online.target sound.target mysqld.service
+Requires=network-online.target
+Conflicts=getty@tty1.service
+
+[Service]
+User=kodi
+Group=kodi
+PAMName=login
+TTYPath=/dev/tty1
+ExecStart=/usr/bin/xinit /usr/bin/kodi-standalone -- :0 -nolisten tcp vt1
+Restart=on-abort
+StandardInput=tty
+
+[Install]
+WantedBy=graphical.target
+```
+Konfiguraationsdateien liegen uznter ~/.kodi des Kodi Benutzers (siehe passwd).

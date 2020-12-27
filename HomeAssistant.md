@@ -4,18 +4,15 @@ Dokumentation für Home Assistent Server
 ## grundsätzliche Einrichtung
 [Home Assistent itself](https://wiki.instar.de/Software/Linux/Home_Assistant/)
 ```bash
-apt install python3-dev python3-pip python3-venv libmariadbclient-dev sqlite3
-pip3 install --upgrade virtualenv homeassistant mysqlclient
+apt install python3-dev python3-pip python3-venv libmariadbclient-dev sqlite3 libglib2.0-dev bluez libpcre3=2:8.39-12 # was an issue on my server
+pip3 install --upgrade virtualenv homeassistant mysqlclient python-eq3bt
 ```
 
 ## Heizungsregler
 [Bluetooth Heizungsregler Integration](https://www.home-assistant.io/integrations/eq3btsmart/)  
 [Bluetooth Heizungsregler PIP](https://github.com/rytilahti/python-eq3bt)  
 ```bash
-apt install libpcre3=2:8.39-12 # was an issue on my server
-apt install libglib2.0-dev bluez
 hcitool lescan # get bluetooth devices
-pip3 install python-eq3bt
 eq3cli --mac 00:00:00:00:00:00 locked --target false
 eq3cli --mac 00:00:00:00:00:00 locked --target true
 ```

@@ -3,6 +3,11 @@ Dokumentation für Home Assistent Server
 
 ## grundsätzliche Einrichtung
 [Home Assistent itself](https://wiki.instar.de/Software/Linux/Home_Assistant/)
+```bash
+apt install python3-dev python3-pip python3-venv libmariadbclient-dev sqlite3
+pip3 install --upgrade virtualenv homeassistant mysqlclient
+```
+
 ## Heizungsregler
 [Bluetooth Heizungsregler Integration](https://www.home-assistant.io/integrations/eq3btsmart/)  
 [Bluetooth Heizungsregler PIP](https://github.com/rytilahti/python-eq3bt)  
@@ -10,11 +15,9 @@ Dokumentation für Home Assistent Server
 apt install libpcre3=2:8.39-12 # was an issue on my server
 apt install libglib2.0-dev bluez
 hcitool lescan # get bluetooth devices
-su -s /bin/bash homeassistant
-python3 -m venv /opt/homeassistant
 pip3 install python-eq3bt
-/opt/homeassistant/.local/bin/eq3cli --mac 00:00:00:00:00:00 locked --target false
-/opt/homeassistant/.local/bin/eq3cli --mac 00:00:00:00:00:00 locked --target true
+eq3cli --mac 00:00:00:00:00:00 locked --target false
+eq3cli --mac 00:00:00:00:00:00 locked --target true
 ```
 Aus unerfindlichen Gründen stürzt das Bluetooth Modul neuerdings (2020-08-19) intern ab.  
 Der Service läuft, es werden aber keine Dienste mehr erkannt.  
@@ -100,14 +103,6 @@ systemctl start bt.service
 
 ## Kodi 
 [Anleitung Home Assitent Community](https://www.home-assistant.io/integrations/kodi/)
-
-## mysql
-```bash
-apt install libmariadbclient-dev sqlite3
-su -s /bin/bash homeassistant
-python3 -m venv /opt/homeassistant
-pip3 install mysqlclient --upgrade
-```
 
 ## Grafana
 https://grafana.com/docs/grafana/latest/installation/debian/

@@ -5,6 +5,15 @@ Dokumentation für Home Assistent Server
 [Home Assistent itself](https://wiki.instar.de/Software/Linux/Home_Assistant/)
 ```bash
 apt install python3-dev python3-pip python3-venv libmariadbclient-dev sqlite3 libglib2.0-dev bluez libpcre3=2:8.39-12 # was an issue on my server
+```  
+Einstweilen muss Python 3.8 manuell eingerichtet werden.  
+[How to Install Python 3.8 on Debian 10](https://linuxize.com/post/how-to-install-python-3-8-on-debian-10/)  
+
+Danach Python Umgebung einrichten. venv bei update überspringen.
+```bash
+sudo su -s /bin/bash homeassistant
+python3.8 -m venv /opt/homeassistant
+source /opt/homeassistant/bin/activate
 pip3 install --upgrade virtualenv homeassistant mysqlclient python-eq3bt
 ```
 

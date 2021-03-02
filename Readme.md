@@ -105,3 +105,24 @@ StandardInput=tty
 WantedBy=graphical.target
 ```
 Konfiguraationsdateien liegen uznter ~/.kodi des Kodi Benutzers (siehe passwd).
+#Client
+## Nextcloud
+## SIP Telefonie
+[Telekom - grundsätzliche Einstellungen](https://www.telekom.de/hilfe/festnetz-internet-tv/ip-basierter-anschluss/einstellungen-fuer-die-ip-telefonie-mit-anderen-clients?samChecked=true)
+
+### Allgemeine Einstellungen
+
+SIP-ID/Benutzer: Ihre Telefonnummer
+Bildschirmname (falls vorhanden): Ihre Telefonnummer
+Authentifizierungsname/Benutzername: Ihre E-Mail-Adresse, z. B. ihr-name@t-online.de
+Passwort: Ihr Passwort
+SIP-Proxy: tel.t-online.de
+Registrar: tel.t-online.de
+Realm: tel.t-online.de
+STUN-Server: stun.t-online.de
+Outbound-Proxy: leer lassen oder ebenfalls tel.t-online.de
+
+Hinweise:
+  -  Geben Sie die SIP-ID ohne Leerzeichen und Sonderzeichen ein (entspricht Vorwahl und Rufnummer)
+  -  Die Eingabe der SIP-ID und des Bildschirmnamens müssen übereinstimmen.
+  -  Den Benutzernamen bitte vollständig klein schreiben.

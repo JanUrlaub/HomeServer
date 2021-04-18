@@ -35,6 +35,12 @@ Problem ist das SIM-Access-Profile, das die Meldung "Operation not permitted" ve
 ```service
 ExecStart=/usr/lib/bluetooth/bluetoothd --noplugin=sap
 ```
+Dabei kann man auch gleich den Dokumentationseintrag korrgieren, weswegen der Start grundesätzlich noch ein Warning ausspuckt.  
+Das -d muss entfernt werden.
+```service
+Documentation=man:bluetoothd (8)
+```
+  
 ```bash
 systemctl daemon-reload
 ```

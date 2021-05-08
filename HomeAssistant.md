@@ -4,8 +4,12 @@ Dokumentation für Home Assistent Server
 ## grundsätzliche Einrichtung
 [Home Assistent itself](https://wiki.instar.de/Software/Linux/Home_Assistant/)
 ```bash
-apt install python3-dev python3-pip python3-venv libmariadbclient-dev sqlite3 libglib2.0-dev bluez libpcre3=2:8.39-12 # was an issue on my server
+apt install python3-pip python3-venv bluez
 ```  
+Veraltet  
+```bash
+apt install python3-dev libmariadbclient-dev sqlite3 libglib2.0-dev libpcre3=2:8.39-12 # was an issue on my server
+```
 Einstweilen muss Python 3.8 manuell eingerichtet werden.  
 [How to Install Python 3.8 on Debian 10](https://linuxize.com/post/how-to-install-python-3-8-on-debian-10/)  
 
@@ -63,7 +67,7 @@ NotifyAccess=main
 [Install]
 WantedBy=multi-user.target
 ```
-
+Die /opt/bluetooth in ExeStart  
 ```bash
 #!/bin/bash
 #/opt/bluetooth
@@ -79,10 +83,25 @@ BTUSB_BINDING="$(lsusb -d "$BTUSB_DEV" |
 echo "Disabling autosuspend for Bluetooth USB: $BTUSB_BINDING..."
 echo -1 > "/sys/bus/usb/devices/$BTUSB_BINDING/power/autosuspend_delay_ms"
 ```
+nach Erstellen der Datei  
 ```bash
 chmod +x /opt/bluetooth
 systemctl enable bt.service
 systemctl start bt.service
+```
+Und die Config aus config/configuration.yaml
+```yaml
+climate:
+  - platform: eq3btsmart
+    devices:
+      kitchen:
+        mac: '00:1A:22:0F:04:9F'
+      office:
+        mac: '00:1A:22:11:5B:25'
+      living:
+        mac: '00:1A:22:11:CD:EA'  
+      bedroom:
+        mac: '00:1A:22:0F:06:40'
 ```
 
 ## Apache Webserver

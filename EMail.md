@@ -21,3 +21,15 @@ postmaster: root
 www-data: root
 root: mail@adresse.at
 ```
+# SMTP Relay
+Mit SendInBlue kann man eine statische IP erhalten. Da diverse Spam Filter allein aufgrund der offiziell dynamischen IP die Mail sperren, ist dies nötig.  
+Unter https://account.sendinblue.com/advanced/api Reiter SMTP können die Zugangsdaten eingesehen werden.
+```config
+### Sendinblue ###
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = static:[user]:[password]
+smtp_sasl_security_options = noanonymous
+smtp_tls_security_level = may
+header_size_limit = 4096000
+relayhost = smtp-relay.sendinblue.com:587
+```

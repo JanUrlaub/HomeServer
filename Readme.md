@@ -105,9 +105,11 @@ StandardInput=tty
 WantedBy=graphical.target
 ```
 Konfiguraationsdateien liegen uznter ~/.kodi des Kodi Benutzers (siehe passwd).
+
 # Raspi
 [Raspi Server](InstallHassioDockerPi.md)
-#Client
+
+# Client
 ## Nextcloud
 ## SIP Telefonie
 [Telekom - grundsätzliche Einstellungen](https://www.telekom.de/hilfe/festnetz-internet-tv/ip-basierter-anschluss/einstellungen-fuer-die-ip-telefonie-mit-anderen-clients?samChecked=true)

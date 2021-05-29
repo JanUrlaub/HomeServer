@@ -105,6 +105,8 @@ StandardInput=tty
 WantedBy=graphical.target
 ```
 Konfiguraationsdateien liegen uznter ~/.kodi des Kodi Benutzers (siehe passwd).
+# Raspi
+[Raspi Server](InstallHassioDockerPi.md)
 #Client
 ## Nextcloud
 ## SIP Telefonie
@@ -126,3 +128,4 @@ Hinweise:
   -  Geben Sie die SIP-ID ohne Leerzeichen und Sonderzeichen ein (entspricht Vorwahl und Rufnummer)
   -  Die Eingabe der SIP-ID und des Bildschirmnamens müssen übereinstimmen.
   -  Den Benutzernamen bitte vollständig klein schreiben.
+

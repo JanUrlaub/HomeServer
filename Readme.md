@@ -106,6 +106,12 @@ WantedBy=graphical.target
 ```
 Konfiguraationsdateien liegen uznter ~/.kodi des Kodi Benutzers (siehe passwd).
 
+## Borg Backup
+Listed die Größe pro Archiv auf. Bitte REPOSITORY_DIR mit dem Pfad zum Repo ersetzen.
+```bash
+printf 'Archive\t\t\t\t\tOrig\tComp\tDedup\n'; printf '%-32.32s\t%s\t%s\t%s\n' $(borg info --json --sort-by name --glob-archives '*' REPOSITORY_DIR | jq '.archives[] | "\(.name) \(.stats.original_size) \(.stats.compressed_size) \(.stats.deduplicated_size)"' | sed --expression='s/^"//;s/"$//' | numfmt --field='2-4' --to=iec)
+```
+
 # Raspi
 [Raspi Server](InstallHassioDockerPi.md)
 

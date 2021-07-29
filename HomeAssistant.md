@@ -18,7 +18,7 @@ Danach Python Umgebung einrichten. venv bei update überspringen.
 sudo su -s /bin/bash homeassistant
 python3.8 -m venv /opt/homeassistant
 source /opt/homeassistant/bin/activate
-pip3 install --upgrade virtualenv homeassistant mysqlclient python-eq3bt
+pip3 install --upgrade homeassistant mysqlclient python-eq3bt
 ```
 
 ## Heizungsregler

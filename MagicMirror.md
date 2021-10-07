@@ -1,10 +1,10 @@
-= Update =
-== Update NPM ==
+# Update
+## Update NPM
 ```
 sudo npm install -g npm
 sudo npm install -g n
 ```
-== Update Magic Mirror ==
+## Update Magic Mirror
 ```
 cd ~/MagicMirror
 git reset --hard

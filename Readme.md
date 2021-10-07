@@ -115,6 +115,9 @@ printf 'Archive\t\t\t\t\tOrig\tComp\tDedup\n'; printf '%-32.32s\t%s\t%s\t%s\n' $
 # Raspi
 [Raspi Server](InstallHassioDockerPi.md)
 
+## Magic Mirror 
+[Magic Mirror](MagicMirror.md)
+
 # Client
 ## Nextcloud
 ## SIP Telefonie

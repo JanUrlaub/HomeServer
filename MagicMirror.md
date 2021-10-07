@@ -11,3 +11,7 @@ git reset --hard
 git pull && npm install
 ~/node_modules/pm2/bin/pm2 restart mm
 ```
+## Setup autostart
+```
+~/node_modules/pm2/bin/pm2 start mm.sh
+```

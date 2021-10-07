@@ -75,8 +75,8 @@ wifis:
     dhcp4: no
     optional: true
     access-points:
-      "WLAN-QERF9P 5G":
-        password: "3839020377131378"
+      "Name":
+        password: "pawword"
     addresses:
       - 192.168.2.3/24
     gateway4: 192.168.2.1

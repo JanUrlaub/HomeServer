@@ -125,18 +125,14 @@ printf 'Archive\t\t\t\t\tOrig\tComp\tDedup\n'; printf '%-32.32s\t%s\t%s\t%s\n' $
 
 ### Allgemeine Einstellungen
 
-SIP-ID/Benutzer: Ihre Telefonnummer
-Bildschirmname (falls vorhanden): Ihre Telefonnummer
-Authentifizierungsname/Benutzername: Ihre E-Mail-Adresse, z. B. ihr-name@t-online.de
-Passwort: Ihr Passwort
-SIP-Proxy: tel.t-online.de
-Registrar: tel.t-online.de
-Realm: tel.t-online.de
-STUN-Server: stun.t-online.de
-Outbound-Proxy: leer lassen oder ebenfalls tel.t-online.de
+Kontoname: Ihre Telefonnummer  
+SIP-Server: tel.t-online.de  
+SIP-Proxy: tel.t-online.de  
+Benutzername: Ihre Telefonnummer  
+Domain: tel.t-online.de  
+Kein Loginname, kein Passwort  
+Medienschlüssel...: Deaktiviert
+Nettzwerkprotokoll: UDP
 
-Hinweise:
-  -  Geben Sie die SIP-ID ohne Leerzeichen und Sonderzeichen ein (entspricht Vorwahl und Rufnummer)
-  -  Die Eingabe der SIP-ID und des Bildschirmnamens müssen übereinstimmen.
-  -  Den Benutzernamen bitte vollständig klein schreiben.
-
+STUN-Server: stun.t-online.de  
+Nameserver: 8.8.8.8; 8.8.4.4 und aktivertes DNS SRV  

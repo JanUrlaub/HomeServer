@@ -131,8 +131,8 @@ SIP-Proxy: tel.t-online.de
 Benutzername: Ihre Telefonnummer  
 Domain: tel.t-online.de  
 Kein Loginname, kein Passwort  
-Medienschlüssel...: Deaktiviert
-Nettzwerkprotokoll: UDP
+Medienschlüssel...: Deaktiviert  
+Netzwerkprotokoll: UDP  
 
 STUN-Server: stun.t-online.de  
 Nameserver: 8.8.8.8; 8.8.4.4 und aktivertes DNS SRV  

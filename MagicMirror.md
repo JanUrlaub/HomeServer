@@ -21,3 +21,7 @@ git pull && npm install
 ```
 ~/node_modules/pm2/bin/pm2 start mm.sh
 ```
+## Installation eines imaginären Displays
+```
+xserver-xorg-video-dummy
+```

@@ -23,7 +23,32 @@ git pull && npm install
 ```
 ## Installation eines imaginären Displays
 ```
-xserver-xorg-video-dummy
+apt install xserver-xorg-video-dummy
+```
+/usr/share/X11/xorg.conf.d/20-dummy.conf 
+```
+Section "Monitor"
+  Identifier "Monitor0"
+  HorizSync 28.0-80.0
+  VertRefresh 48.0-75.0
+  # https://arachnoid.com/modelines/
+  Modeline "1200x825_60.00" 81.16 1200 1264 1392 1584 825 826 829 854 -HSync +Vsync
+EndSection
+Section "Device"
+  Identifier "Card0"
+  Driver "dummy"
+  VideoRam 256000
+EndSection
+Section "Screen"
+  DefaultDepth 24
+  Identifier "Screen0"
+  Device "Card0"
+  Monitor "Monitor0"
+  SubSection "Display"
+    Depth 24
+    Modes "1200x825_60.00"
+  EndSubSection
+EndSection
 ```
 
 ## main.py

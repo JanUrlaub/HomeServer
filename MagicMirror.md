@@ -19,6 +19,7 @@ git clone https://github.com/GregDMeyer/IT8951.git
 cd IT8951
 sudo pip3.9 install -r requirements.txt
 sudo pip3.9 install ./
+sudo pip3.9 install six
 ```
 
 ## main.py

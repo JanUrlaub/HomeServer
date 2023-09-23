@@ -1,54 +1,24 @@
 # Update
-## Installl NPM
+Generelle Anleitung: https://www.howtoforge.com/how-to-install-python-on-debian-11/
+
+## Install dev packages 
 ```
-curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
-sudo npm install -g npm
-sudo npm install -g n
+apt install libssl-dev libffi-dev
 ```
-## Update NPM
+## install Python
 ```
-sudo npm install -g npm
-sudo npm install -g n
+wget https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz
+tar xzf Python-3.9.9.tgz
+cd Python-3.9.9
+./configure --enable-optimizations
+sudo make install
 ```
-## Update Magic Mirror
+## Install display Driver
 ```
-cd ~/MagicMirror
-git reset --hard
-git pull && npm install
-~/node_modules/pm2/bin/pm2 restart mm
-```
-## Setup autostart
-```
-~/node_modules/pm2/bin/pm2 start mm.sh
-```
-## Installation eines imaginären Displays
-```
-apt install xserver-xorg-video-dummy
-```
-/usr/share/X11/xorg.conf.d/20-dummy.conf 
-```
-Section "Monitor"
-  Identifier "Monitor0"
-  HorizSync 28.0-80.0
-  VertRefresh 48.0-75.0
-  # https://arachnoid.com/modelines/
-  Modeline "1200x825_60.00" 81.16 1200 1264 1392 1584 825 826 829 854 -HSync +Vsync
-EndSection
-Section "Device"
-  Identifier "Card0"
-  Driver "dummy"
-  VideoRam 256000
-EndSection
-Section "Screen"
-  DefaultDepth 24
-  Identifier "Screen0"
-  Device "Card0"
-  Monitor "Monitor0"
-  SubSection "Display"
-    Depth 24
-    Modes "1200x825_60.00"
-  EndSubSection
-EndSection
+git clone ...
+cd IT8951
+sudo pip3.9 install -r requirements.txt
+sudo pip3.9 install ./
 ```
 
 ## main.py

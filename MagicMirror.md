@@ -40,7 +40,7 @@ EPD_HEIGHT = 825
 def main():
     options = {'width': EPD_WIDTH, 'height': EPD_HEIGHT}
     # https://pypi.org/project/imgkit/
-    imgkit.from_url('https://ampache.janf.name/magicmirror.htm', 'screenshot.png', options=options)
+    imgkit.from_url('https://banking.janf.name/magicmirror.php', 'screenshot.png', options=options)
     image = Image.open('screenshot.png')
     #image = ImageGrab.grab()
 

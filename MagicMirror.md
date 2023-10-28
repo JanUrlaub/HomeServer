@@ -3,23 +3,15 @@ Generelle Anleitung: https://www.howtoforge.com/how-to-install-python-on-debian-
 
 ## Install dev packages 
 ```
-apt install libssl-dev libffi-dev
-```
-## install Python
-```
-wget https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz
-tar xzf Python-3.9.9.tgz
-cd Python-3.9.9
-./configure --enable-optimizations
-sudo make install
+apt install libssl-dev libffi-dev git python3-pip
 ```
 ## Install display Driver
 ```
 git clone https://github.com/GregDMeyer/IT8951.git
 cd IT8951
-sudo pip3.9 install -r requirements.txt
-sudo pip3.9 install ./
-sudo pip3.9 install six
+sudo pip install -r requirements.txt
+sudo pip install ./
+sudo pip install pillow
 ```
 
 ## main.py

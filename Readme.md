@@ -1,4 +1,16 @@
 # Server
+## Rasp Pi Server
+- Verwendung des minimal RaspiOS
+- Installation Casaos
+- Eigenes Docker-File für docker-mailserver
+- manuelles Netzwerk Bridge für Pi-Hole
+- Borg Backup auf Hostsystem
+- cronjob für Nextcloud läuft über root des hosts
+``` crontab -e
+  0 4   *   *   *    /opt/borgbackup_local.sh
+*/5 *   *   *   *    docker exec -u www-data nextcloud php /var/www/html/cron.php
+```
+
 ## Cloud Server
 /etc/apache2/sites-available/nextcloud.conf
 ```conf

@@ -6,6 +6,7 @@
 - manuelles Netzwerk Bridge für Pi-Hole
 - Borg Backup auf Hostsystem
 - cronjob für Nextcloud läuft über root des hosts
+- https://github.com/IceWhaleTech/CasaOS/issues/1136 wegen sont fehlender Anzeige des RAMs
 ``` crontab -e
   0 4   *   *   *    /opt/borgbackup_local.sh
 */5 *   *   *   *    docker exec -u www-data nextcloud php /var/www/html/cron.php
